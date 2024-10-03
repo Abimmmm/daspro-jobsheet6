@@ -10,6 +10,7 @@ public class Pemilihan2Tugas01 {
         String jenisBuku = sc01.nextLine();
         System.out.print("Masukkan jumlah buku: ");
         int jumlahBuku = sc01.nextInt();
+        sc01.nextLine();
 
         if (jenisBuku.equalsIgnoreCase("kamus")) {
             diskon = 0.10;
@@ -20,11 +21,15 @@ public class Pemilihan2Tugas01 {
             diskon = 0.07;
             if (jumlahBuku > 3) {
                 diskon += 0.02;
-            } else {
+            } else if (jumlahBuku <= 3) {
                 diskon += 0.01;
             }
         } else {
-            diskon = 0.05;
+            if (jumlahBuku > 3) {
+                diskon = 0.05;
+            } else {
+                diskon = 0;
+            }
         }
 
         int totalHargaSebelumDiskon = hargaBuku * jumlahBuku;
